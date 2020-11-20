@@ -21,8 +21,9 @@ def text():
     print(request)
     error = 'Invalid request. Make sure you are making POST requests.'
     content = request.get_json(silent=True, force=True)
-    text= content["text"]
-    print(text)
+    text = ""
+    if content != None: 
+        text = content["text"]
     if request.method == 'POST':
         if text != None:
             return wolframRequest(text)
@@ -39,12 +40,17 @@ def image():
     text = content["text"]
     if request.method == 'POST':
         if text != None:
-            return wolframRequest(text)
+            return imgRequest(text)
         else:
-            error = 'Invalid request body. Format it as JSON, like {“text”: “texthere”}'
+            error = 'Invalid request body. Format it as JSON, like {“img”: “texthere”}'
     # the code below is executed if the request method
     # was GET or the credentials were invalid
     return error
+
+def imgRequest(data):
+   if data.img==None:
+       return "Error: Couldn't find an image"
+   else:
 
 def wolframRequest(text):
     # this will make the request to wolfram with whatever text is passsed in, then return the response
