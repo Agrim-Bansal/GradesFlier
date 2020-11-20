@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   padding: 0;
   margin: 0;
 
@@ -7,8 +8,33 @@ html, body {
 
 #app {
   text-align: center;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', 'Helvetica', 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+
+#app input {
+  border-width: 2px;
+  border-color: #2c3e50;
+  border-radius: 1em;
+  background-color: #f6f6f6;
+}
+
+#text-or-img:checked ~ #img-container {
+  display: none;
+}
+
+#text-or-img:not(:checked) ~ #text-container {
+  display: none;
+}
+
+#app input[type='text'] {
+  width: 24em;
+  height: 8em;
+}
+
+#app input[type='submit'] {
+  width: 12em;
+  height: 4em;
 }

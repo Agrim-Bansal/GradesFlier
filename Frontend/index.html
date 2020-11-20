@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <script src="index.js"> </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="index.css">
   <title>GradesFlier</title>
@@ -12,23 +13,35 @@
   <div id="app">
     <h1>GradesFlier!</h1>
 
-    <form name="askquestion" action="https://.../api/solve" method="POST" autocomplete="off">
+    <br />
 
-      <input type="text" placeholder="Enter Your Question Here !" />
-      <br /><br />
+    <div>
 
-      <label for="img">Upload Your Question image here</label>
+      <label for = "text-or-img" >Ask question by Text </label>
       <br />
-      <input type="file" id="img" name="img" accept="image/*" />
+      <input type="checkbox" id="text-or-img" checked />
+      
+      <br /><br />
+
+      <span id="text-container">
+        <label for="text_question">Enter your question here!</label>
+        <br />
+        <input type="text" id="text_question" name="text" />
+      </span>
+
+      <span id="img-container">
+        <label for="img">Enter a screenshot of the question here!</label>
+        <br />
+        <input type="file" id="img" name="img" accept="image/*" />
+      </span>
 
       <br /><br />
 
-      <input type="submit" value="Submit" />
-    </form>
+      <input type="submit" id="submit" value="Ask" onclick="ask()" />
+    </div>
   </div>
 
 
-  <script src="index.js"> </script>
 </body>
 
 </html>
