@@ -9,19 +9,12 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app) # For testing
 
-# How would we add "Access-Control-Allow-Origin: *" for testing?
-# Right now it isn't letting the website access the API
-# Error: Origin http://localhost:8000 is not allowed by Access-Control-Allow-Origin.
-
-
-
 WOLFRAM_APP_ID = os.environ["WOLFRAM_APP_ID"]
 wolfram = wolframalpha.Client(WOLFRAM_APP_ID)
 
 @app.route('/')
 def default():
     return 'Hello, World!'
-
 
 @app.route('/api/solve/text', methods=['POST', 'GET'])
 def text():
@@ -57,5 +50,3 @@ def wolframRequest(text):
     # this will make the request to wolfram with whatever text is passsed in, then return the response
     res = wolfram.query(text)
     return res
-
-app.run(debug=True, port=8080)
