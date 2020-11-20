@@ -41,7 +41,7 @@ async function ask() {
   if (output == null) {
     const imgAns = data.pod[1].subpod.img["@src"]
     if (imgAns != null) {
-      imgAnsEl.style.display = "default"
+      imgAnsEl.style.display = "block"
       imgAnsEl.src = imgAns
 
     } else {
