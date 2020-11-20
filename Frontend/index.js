@@ -1,4 +1,4 @@
-const urlbase = 'http://localhost:8080/api/solve'
+const urlbase = 'https://gradesflier.herokuapp.com/api/solve'
 
 const req = {
   method: 'POST',
