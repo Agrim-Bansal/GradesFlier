@@ -37,7 +37,7 @@ async function ask() {
 
   let output = data.pod[1].subpod.plaintext
   var imgAnsEl = document.getElementById("img-answer")
-  imgAnsEl.style.display = "hide"
+  imgAnsEl.style.display = "none"
   if (output == null) {
     const imgAns = data.pod[1].subpod.img["@src"]
     if (imgAns != null) {
