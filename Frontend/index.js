@@ -2,10 +2,12 @@ const urlbase = 'https://gradesflier.herokuapp.com/api/solve'
 
 const req = {
   method: 'POST',
-  headers: { 'Content-Type': 'application/json' }
+  headers: {
+    'Content-Type': 'application/json'
+  }
 }
 
-async function ask () {
+async function ask() {
   document.getElementById('submit').disabled = true
   let useText = true // document.getElementById('text-or-img').checked
 
@@ -18,7 +20,9 @@ async function ask () {
     if (text.length == 0)
       return alert('You need to ask a question to get answers!')
 
-    req.body = JSON.stringify({ text })
+    req.body = JSON.stringify({
+      text
+    })
     urlext = '/text'
   } else {
     // Use Image
@@ -32,10 +36,20 @@ async function ask () {
   let data = await res.json()
 
   let output = data.pod[1].subpod.plaintext
+  var imgAnsEl = document.getElementById("img-answer")
+  imgAnsEl.style.display = "hide"
+  if (output == null) {
+    const imgAns = data.pod[1].subpod.img["@src"]
+    if (imgAns != null) {
+      imgAnsEl.style.display = "default"
+      imgAnsEl.src = imgAns
 
-  if (output == null) output = 'Answer not found.'
-
-  alert(output)
-
+    } else {
+      output = "Answer not found."
+      alert(output)
+    }
+  } else {
+    alert(output)
+  }
   document.getElementById('submit').disabled = false
 }

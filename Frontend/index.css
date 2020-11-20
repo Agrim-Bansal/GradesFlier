@@ -6,12 +6,21 @@ body {
   background-color: #eeeeee;
 }
 
+h1, h2, h3, h4, h5, h6, label, input {
+  
+  font-family: 'Avenir', 'Helvetica', 'Arial', sans-serif;
+}
+
 #app {
   text-align: center;
   font-family: 'Avenir', 'Helvetica', 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+
+input {
+  margin: 5px;
 }
 
 #app input {
@@ -30,11 +39,19 @@ body {
 }
 
 #app input[type='text'] {
-  width: 24em;
-  height: 8em;
+  width: 30vw;
+  height: 40vh;
 }
 
 #app input[type='submit'] {
   width: 12em;
   height: 4em;
+}
+
+#img-answer {
+  display: none;
+}
+
+#text_question {
+  padding: 15px;
 }
