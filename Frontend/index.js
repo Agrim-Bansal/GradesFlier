@@ -6,7 +6,8 @@ const req = {
 }
 
 async function ask () {
-  let useText = document.getElementById('text-or-img').checked
+  document.getElementById('submit').disabled = true
+  let useText = true // document.getElementById('text-or-img').checked
 
   let urlext = ''
 
@@ -30,6 +31,11 @@ async function ask () {
 
   let data = await res.json()
 
-  console.log(data)
-  alert(data.pod[1].subpod.plaintext)
+  let output = data.pod[1].subpod.plaintext
+
+  if (output == null) output = 'Answer not found.'
+
+  alert(output)
+
+  document.getElementById('submit').disabled = false
 }
